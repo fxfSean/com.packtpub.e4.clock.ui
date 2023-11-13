@@ -73,8 +73,11 @@ IStyledLabelProvider, IFontProvider{
 
 	@Override
 	public Font getFont(Object element) {
-		Font italic = fr.getItalic(JFaceResources.DEFAULT_FONT);
-		return italic;
+		if (fr != null) {
+			Font italic = fr.getItalic(JFaceResources.DEFAULT_FONT);
+			return italic;
+		}
+		return null;
 	}
 
 }

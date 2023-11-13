@@ -23,14 +23,13 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.ISharedImages;
-import org.eclipse.ui.part.ViewPart;
 
 import com.packtpub.e4.clock.ui.internal.TimeZoneDialog;
 import com.packtpub.e4.clock.ui.internal.TimeZoneViewerComparator;
 import com.packtpub.e4.clock.ui.internal.TimeZoneViewerFilter;
 
 
-public class TimeZoneTreeView extends ViewPart {
+public class TimeZoneTreeView {
 	
 	private TreeViewer treeViewer;
 	@Inject
@@ -39,16 +38,6 @@ public class TimeZoneTreeView extends ViewPart {
 	
 	@PostConstruct
 	public void create(Composite parent) {
-		System.out.println("11");
-		treeViewer = new TreeViewer(parent, SWT.H_SCROLL|SWT.V_SCROLL|SWT.MULTI);
-		System.out.println("14");
-		treeViewer.setLabelProvider(new TimeZoneLabelProvider(images, null, null));
-		treeViewer.setContentProvider(new TimeZoneContentProvider());
-		treeViewer.setInput(new Object[] {TimeZoneComparator.getTimeZones()});
-	}
-
-	@Override
-	public void createPartControl(Composite parent) {
 		treeViewer = new TreeViewer(parent, SWT.H_SCROLL|SWT.V_SCROLL|SWT.MULTI);
 		ResourceManager rm = JFaceResources.getResources();
 		LocalResourceManager lrm = new LocalResourceManager(rm, parent);
@@ -84,10 +73,8 @@ public class TimeZoneTreeView extends ViewPart {
 			
 		});
 	}
+	
+	
 
-	@Override
-	public void setFocus() {
-		
-	}
 
 }

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
 <plugin>
 
    <extension
@@ -33,17 +32,14 @@
             name="Time Zone Table View"
             restorable="true">
       </e4view>
-       <view
-            category="com.packtpub.e4.clock.ui"
-            class="com.packtpub.e4.clock.ui.views.TimeZoneTreeView"
-            icon="icons/sample.png"
-            id="com.packtpub.e4.clock.ui.TimeZoneTreeView"
-            name="TimeZoneTreeView"
-            inject="true"
-            restorable="true">
-      </view>
-      
-     
+   </extension>
+   <extension
+         id="com.packtpub.e4.clock.ui.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="fragment.e4xmi"
+            apply="always">
+      </fragment>
    </extension>
 
 </plugin>

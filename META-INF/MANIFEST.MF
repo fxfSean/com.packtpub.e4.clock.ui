@@ -6,6 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.packtpub.e4.clock.ui.Activator
 Bundle-Vendor: PACKTPUB
 Require-Bundle: org.eclipse.ui,
+ javax.annotation,
  org.eclipse.core.runtime,
  org.eclipse.e4.ui.di;bundle-version="1.5.100"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

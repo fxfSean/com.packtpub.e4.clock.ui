@@ -2,6 +2,8 @@ package com.packtpub.e4.clock.ui.handlers;
 
 import java.util.Iterator;
 
+import org.eclipse.core.commands.Command;
+import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -10,13 +12,22 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.e4.core.di.annotations.Execute;
+import org.eclipse.e4.core.services.statusreporter.StatusReporter;
 import org.eclipse.e4.ui.di.UISynchronize;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.commands.ICommand;
+import org.eclipse.ui.commands.ICommandService;
+import org.eclipse.ui.progress.IProgressConstants;
+import org.eclipse.ui.progress.IProgressConstants2;
+
+import com.packtpub.e4.clock.ui.Activator;
 
 public class HelloHandler {
 	
 	@Execute
-	public void execute(final UISynchronize display) {
+	public void execute(final UISynchronize display,
+			ICommandService commandService,
+			final StatusReporter statusReporter) {
 		Job job = new Job("about to say hello") {
 
 			@Override
@@ -24,6 +35,7 @@ public class HelloHandler {
 				try {
 					SubMonitor subMonitor = SubMonitor.convert(monitor, "Preparing", 5000);
 //					monitor.beginTask("Preparing", 5000);
+					subMonitor = null;
 					for(int i = 0; i < 50 && !subMonitor.isCanceled(); i++) {
 						if (i == 10) {
 							subMonitor.subTask("Doing somthing");
@@ -40,7 +52,10 @@ public class HelloHandler {
 						monitor.worked(100);
 					}
 				} catch (Exception e) {
-					// TODO: handle exception
+//					return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "bug", e);
+					Status status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, "bug", e);
+					statusReporter.report(status, StatusReporter.LOG | StatusReporter.SHOW);
+					
 				} finally {
 					monitor.done();
 				}
@@ -54,6 +69,11 @@ public class HelloHandler {
 			}
 			
 		};
+		Command command = commandService.getCommand("com.packtpub.e4.clock.ui.command.hello");
+		if (command != null) {
+			job.setProperty(IProgressConstants2.COMMAND_PROPERTY, 
+					ParameterizedCommand.generateCommand(command, null));
+		}
 		job.schedule();
 		return;
 	}

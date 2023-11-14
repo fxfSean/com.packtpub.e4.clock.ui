@@ -43,6 +43,18 @@
             apply="always">
       </fragment>
    </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+	  <page name="Clock"
+	  		category="org.ecliipse.ui.preferencePages.Workbench"
+	        class="com.packtpub.e4.clock.ui.ClockPreferencePage"
+	        id="com.packtpub.e4.clock.ui.preference.page">
+	  	<keywordReference id="com.packtpub.e4.clock.ui.keywords"/>
+	  </page>
+	</extension>
+	<extension point="org.eclipse.ui.keywords">
+		<keyword id="com.packtpub.e4.clock.ui.keywords" 
+				label="offset timezone"/>
+	</extension>
    <extension point="org.eclipse.core.expressions.definitions">
 	  <definition id="when.hello.is.active">
 	    <with variable="activeContexts">

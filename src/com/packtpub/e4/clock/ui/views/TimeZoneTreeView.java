@@ -6,6 +6,8 @@ import java.time.ZoneId;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+import org.eclipse.e4.core.di.extensions.Preference;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.FontRegistry;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -34,10 +36,20 @@ public class TimeZoneTreeView {
 	private TreeViewer treeViewer;
 	@Inject
 	private ISharedImages images;
+//	@Preference(nodePath = "com.packtpub.e4.clock.ui",
+//			value = "launchCount")
+//	@Inject
+//	IEclipsePreferences preferences;
+	int launchCount;
 	
+	public void setLaunchCount(@Preference(nodePath = "com.packtpub.e4.clock.ui",
+			value = "launchCount") int launchCount) {
+		this.launchCount = launchCount;
+	}
 	
 	@PostConstruct
 	public void create(Composite parent) {
+		System.out.println("Launch count is: " + launchCount);
 		treeViewer = new TreeViewer(parent, SWT.H_SCROLL|SWT.V_SCROLL|SWT.MULTI);
 		ResourceManager rm = JFaceResources.getResources();
 		LocalResourceManager lrm = new LocalResourceManager(rm, parent);

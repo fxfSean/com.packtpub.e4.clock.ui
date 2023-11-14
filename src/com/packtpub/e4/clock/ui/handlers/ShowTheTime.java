@@ -12,6 +12,8 @@ public class ShowTheTime {
 	@Execute
 	public void execute(ESelectionService selectionService) {
 		Object selection = selectionService.getSelection();
+		System.out.println(315);
+		System.out.println(selectionService);
 		if (selection instanceof ZoneId) {
 			DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
 			String time = ZonedDateTime.now((ZoneId)selection).format(formatter);

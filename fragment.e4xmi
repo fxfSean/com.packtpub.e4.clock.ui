@@ -8,6 +8,7 @@
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_CGEcAII6Ee6yFqmYq4PT-g" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Handler" xmi:id="_HmszAII6Ee6yFqmYq4PT-g" elementId="com.packtpub.e4.clock.ui.handler.HelloHandler" contributionURI="bundleclass://com.packtpub.e4.clock.ui/com.packtpub.e4.clock.ui.handlers.HelloHandler" command="_2dX6kII5Ee6yFqmYq4PT-g"/>
+    <elements xsi:type="commands:Handler" xmi:id="_PdRHYILOEe6NloUO10Kaag" elementId="com.packtpub.e4.clock.ui.handler.ShowTheTime" contributionURI="bundleclass://com.packtpub.e4.clock.ui/com.packtpub.e4.clock.ui.handlers.ShowTheTime" command="_Q4BgEILMEe6cmZJOMLV8jA"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_9YmVYII7Ee6yFqmYq4PT-g" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="menu:MenuContribution" xmi:id="_ZeqoMII8Ee6yFqmYq4PT-g" elementId="com.packtpub.e4.clock.ui.menucontribution.0" parentId="help">
@@ -22,7 +23,7 @@
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_qg2J0ILLEe6cmZJOMLV8jA" featurename="descriptors" parentElementId="org.eclipse.e4.legacy.ide.application">
-    <elements xsi:type="basic:PartDescriptor" xmi:id="_vnkzEILLEe6cmZJOMLV8jA" elementId="com.packtpub.e4.clock.ui.partdescriptor.timeZoneTableView" label="Time Zone Table View" iconURI="platform:/plugin/com.packtpub.e4.clock.ui/icons/sample.png" category="Timekeeping" contributionURI="bundleclass://com.packtpub.e4.clock.ui/com.packtpub.e4.clock.ui.views.TimeZoneTableView">
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_vnkzEILLEe6cmZJOMLV8jA" elementId="com.packtpub.e4.clock.ui.partdescriptor.timeZoneTableView" label="Time Zone Table View Fragment" iconURI="platform:/plugin/com.packtpub.e4.clock.ui/icons/sample.png" category="Timekeeping" contributionURI="bundleclass://com.packtpub.e4.clock.ui/com.packtpub.e4.clock.ui.views.TimeZoneTableView">
       <menus xsi:type="menu:PopupMenu" xmi:id="__xBi4ILLEe6cmZJOMLV8jA" elementId="com.packtpub.e4.clock.ui.popup">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_HZlPsILMEe6cmZJOMLV8jA" elementId="com.packtpub.e4.clock.ui.handledmenuitem.showTheTime" label="Show The Time" command="_Q4BgEILMEe6cmZJOMLV8jA"/>
       </menus>

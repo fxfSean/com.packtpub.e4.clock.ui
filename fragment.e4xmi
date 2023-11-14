@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_wuGgEII4Ee6yFqmYq4PT-g">
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/descriptor/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_wuGgEII4Ee6yFqmYq4PT-g">
+  <imports xsi:type="commands:BindingContext" xmi:id="_AhbQoILCEe6cmZJOMLV8jA" elementId="org.eclipse.ui.contexts.dialogAndWindow"/>
+  <imports xsi:type="commands:BindingContext" xmi:id="_V2LyQILDEe6cmZJOMLV8jA" elementId="org.eclipse.ui.contexts.dialog"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_jSc90II5Ee6yFqmYq4PT-g" featurename="commands" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Command" xmi:id="_2dX6kII5Ee6yFqmYq4PT-g" elementId="com.packtpub.e4.clock.ui.command.hello" commandName="Hello" description="Says hello"/>
+    <elements xsi:type="commands:Command" xmi:id="_Q4BgEILMEe6cmZJOMLV8jA" elementId="com.packtpub.e4.clock.ui.command.show" commandName="Show The Time"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_CGEcAII6Ee6yFqmYq4PT-g" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Handler" xmi:id="_HmszAII6Ee6yFqmYq4PT-g" elementId="com.packtpub.e4.clock.ui.handler.HelloHandler" contributionURI="bundleclass://com.packtpub.e4.clock.ui/com.packtpub.e4.clock.ui.handlers.HelloHandler" command="_2dX6kII5Ee6yFqmYq4PT-g"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_9YmVYII7Ee6yFqmYq4PT-g" featurename="menuContributions" parentElementId="org.eclipse.e4.legacy.ide.application">
-    <elements xsi:type="menu:MenuContribution" xmi:id="_ZeqoMII8Ee6yFqmYq4PT-g" elementId="com.packtpub.e4.clock.ui.menucontribution.0">
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_cPd74II8Ee6yFqmYq4PT-g"/>
+    <elements xsi:type="menu:MenuContribution" xmi:id="_ZeqoMII8Ee6yFqmYq4PT-g" elementId="com.packtpub.e4.clock.ui.menucontribution.0" parentId="help">
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_cPd74II8Ee6yFqmYq4PT-g" elementId="com.packtpub.e4.clock.ui.handledmenuitem.Hello" label="Hello" iconURI="platform:/plugin/com.packtpub.e4.clock.ui/icons/sample.png" command="_2dX6kII5Ee6yFqmYq4PT-g">
+        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_4SPhUILEEe6cmZJOMLV8jA" coreExpressionId="when.hello.is.active"/>
+      </children>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_IW3i4ILCEe6cmZJOMLV8jA" featurename="bindingTables" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="commands:BindingTable" xmi:id="_P9LM8ILCEe6cmZJOMLV8jA" elementId="com.packtpub.e4.clock.ui.bindingtable.0" bindingContext="_V2LyQILDEe6cmZJOMLV8jA">
+      <bindings xmi:id="_SODDYILCEe6cmZJOMLV8jA" elementId="com.packtpub.e4.clock.ui.keybinding.0" keySequence="M1+9" command="_2dX6kII5Ee6yFqmYq4PT-g"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_qg2J0ILLEe6cmZJOMLV8jA" featurename="descriptors" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_vnkzEILLEe6cmZJOMLV8jA" elementId="com.packtpub.e4.clock.ui.partdescriptor.timeZoneTableView" label="Time Zone Table View" iconURI="platform:/plugin/com.packtpub.e4.clock.ui/icons/sample.png" category="Timekeeping" contributionURI="bundleclass://com.packtpub.e4.clock.ui/com.packtpub.e4.clock.ui.views.TimeZoneTableView">
+      <menus xsi:type="menu:PopupMenu" xmi:id="__xBi4ILLEe6cmZJOMLV8jA" elementId="com.packtpub.e4.clock.ui.popup">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_HZlPsILMEe6cmZJOMLV8jA" elementId="com.packtpub.e4.clock.ui.handledmenuitem.showTheTime" label="Show The Time" command="_Q4BgEILMEe6cmZJOMLV8jA"/>
+      </menus>
     </elements>
   </fragments>
 </fragment:ModelFragments>
